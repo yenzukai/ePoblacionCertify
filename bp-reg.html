@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Form</title>
+    <link rel="icon" href="images/san-vicente-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1199724377.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <!--header section-->
+    <div id="reg-header">
+        <div class="reg-menu-container">
+            <img src="images/ePoblacionCertify.png" class="logo" alt="The Logo of the Website">
+            <a href="#" onclick="goBack()" class="fa-solid fa-arrow-right-from-bracket"></a>
+        </div>
+    </div>
+    <!--services - brgy clearance request form section-->
+    <div id="register">
+        <div class="profile">
+            <img src="images/user.png" alt="Error">
+            <h5>Name: <br /> Maria Cecilia R. Perico <br /> Gcash/Paymaya No. <br /> +639 12 345 6789</h5>
+        </div>
+        <div class="reg-container">
+            <h2>Barangay Business Permit</h2>
+            <h3>Request Form</h3>
+            <form id="bpForm" action="bp-record.php" method="post" enctype="multipart/form-data" onsubmit="generateTrackingNumber()">
+                <!-- First group row -->
+                <input type="hidden" id="tracking_number" name="tracking_number" readonly />
+                <input type="hidden" id="certificate_type" name="certificate_type" value="Business Permit" readonly />
+
+                <h4>Business Name</h4>
+                <input type="text" id="business_name" name="business_name" placeholder="Ex. Microsoft" required />
+                <h4>Business Number</h4>
+                <input type="text" id="business_number" name="business_number" required />
+
+                <div class="form-group">
+                    <div>
+                        <h4>Full Name</h4>
+                        <input type="text" id="first_name" name="first_name" placeholder="Ex. Jose" required />
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="middle_name" name="middle_name" placeholder="Ex. Protacio" required />
+                        <label for="middle_name">Middle Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="last_name" name="last_name" placeholder="Ex. Rizal" required />
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+
+                <!-- Second group row -->
+                <div class="form-group">
+                    <div>
+                        <h4>Full Address </h4>
+                        <input type="text" id="house_no" name="house_no" required />
+                        <label for="house_no">House/Building No.</label>
+                    </div>
+                    <div>
+                        <input type="text" id="street_name" name="street_name" required />
+                        <label for="street_name">Street Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="barangay" name="barangay" required />
+                        <label for="barangay">Barangay</label>
+                    </div>
+                    <div>
+                        <input type="text" id="municipality" name="municipality" required />
+                        <label for="municipality">Municipality</label>
+                    </div>
+                    <div>
+                        <input type="text" id="province" name="province" required />
+                        <label for="province">Province</label>
+                    </div>
+                    <div>
+                        <input type="text" id="zip_code" name="zip_code" required />
+                        <label for="zip_code">Postal/Zip Code</label>
+                    </div>
+                </div>
+
+                <!-- Third group row -->
+                <h4>Email Address</h4>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+
+                <h4>Phone Number</h4>
+                <input type="text" id="phone_number" name="phone_number" placeholder="+6390-0000-0000" required />
+
+                <h4>Pick-up Date</h4>
+                <input type="date" id="pick_up_date" name="pick_up_date" required />
+
+                <!-- Fourth group row -->
+                <div class="form-group">
+                    <div>
+                        <h4>Payment Method</h4>
+                        <select name="payment_method" id="payment_method">
+                            <option value="select">Select Payment Method</option>
+                            <option value="gcash">Gcash</option>
+                            <option value="paymaya">Paymaya</option>
+                            <option value="cash_on_pick-up">Cash on Pick-up</option>
+                        </select>
+                    </div>
+                    <div>
+                        <h4>Reference Number</h4>
+                        <input type="text" id="reference_number" name="reference_number" />
+                        <h5>Note: For Gcash/Paymaya Payment Only</h5>
+                    </div>
+                </div>
+
+                <!-- Fifth group row -->
+                <h4>Purpose</h4>
+                <textarea id="purpose" name="purpose" rows="5" required></textarea>
+
+                <!-- Sixth row -->
+                <h4>Supporting Document</h4>
+                <input type="file" id="support_doc" name="support_doc" accept=".pdf, .docx, .doc, .jpg, .jpeg, .png" required />
+
+                <!-- Seventh row -->
+                <button type="submit" id="submitButton" value="Submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function generateTrackingNumber() {
+            // Generate a tracking number (timestamp + random number)
+            var timestamp = new Date().getTime(); // Get current timestamp
+            var randomNum = Math.floor(1000 + Math.random() * 9000); // Generate a random 4-digit number
+            var tracking_number = timestamp + '-' + randomNum;
+
+            // Set the generated tracking number in the hidden input field
+            document.getElementById("tracking_number").value = tracking_number;
+        }
+    </script>
+
+</body>
+
+</html>

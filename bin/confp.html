@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1199724377.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="confirm">
+        <img src="images/color_ePoblacionCertify.png" class="logo" alt="A logo of the website">
+        <div class="confirm-tab">
+            <h1>Your request has been successfully submitted!</h1>
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>Hello <strong><span id="displayName">' . htmlspecialchars($_POST['first_name']) . '</span></strong>! Your request has been received, and it is now ready to be released!</h2>
+            <h2>We will be notifying you shortly about your request in this email address: <strong><span id="displayEmail">' . htmlspecialchars($_POST['email']) . '</span></strong></h2>
+            <h3>Please keep a record of your reference number for future inquiries</h3>
+            <h4>Your Reference Number: <strong><span id="displayTrackingNumber">' . htmlspecialchars($_POST['tracking_number']) . '</span></strong></h4>
+            <p>If you have any questions or need further assistance, please contact us at <span>brgysanvicente@gmail.com</span></p>
+            <a href="bc-cert-gen.php" target="_blank">Click to download your certificate now!<br /></a>
+            <a href="#" onclick="openFeedbackForm()">Give Feedback</a>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve the data from localStorage
+        var first_name = localStorage.getItem("first_name");
+        var email = localStorage.getItem("email");
+
+        // Display the data
+        document.getElementById("displayName").textContent = first_name;
+        document.getElementById("displayEmail").textContent = email;
+    </script>
+
+    <script>
+        // Get the tracking number from the hidden input field
+        var tracking_number = localStorage.getItem("tracking_number");
+
+        // Display the tracking number on the confirmation page
+        document.getElementById("displayTrackingNumber").textContent = tracking_number;
+    </script>
+</body>
+</html>

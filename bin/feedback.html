@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1199724377.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <div class="feedback-content">
+        <span class="close" onclick="closeFeedbackForm()">&times;</span>
+        <h2>Feedback Form</h2>
+        <p>Please provide your feedback:</p>
+        <form id="feedback-form">
+            <div>
+                <label for="rating">Rating:</label>
+                <div id="stars" class="star-rating">
+                    <span class="star" onclick="rate(1)">&#9733;</span>
+                    <span class="star" onclick="rate(2)">&#9733;</span>
+                    <span class="star" onclick="rate(3)">&#9733;</span>
+                    <span class="star" onclick="rate(4)">&#9733;</span>
+                    <span class="star" onclick="rate(5)">&#9733;</span>
+                </div>
+            </div>
+            <div>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="7" cols="80"></textarea>
+            </div>
+            <button type="button" onclick="submitFeedback()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

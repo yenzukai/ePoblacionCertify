@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track your Request</title>
+    <link rel="icon" href="images/san-vicente-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1199724377.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <!--header section-->
+    <div id="trac-header">
+        <div class="trac-menu-container">
+            <img src="images/ePoblacionCertify.png" class="logo" alt="The Logo of the Website">
+            <a href="#" onclick="goBack()" class="fa-solid fa-arrow-right-from-bracket"></a>
+        </div>
+    </div>
+    <!--tracking section-->
+    <div id="tracking">
+        <div class="trac-container">
+            <h2>Track <span>Your</span> Request</h2>
+            <h3>Please enter your tracking number to check the status of your certification request.</h3>
+            <form id="trackForm">
+                <input type="text" id="tracking_number" name="tracking_number" placeholder="0000000000000-0000" required />
+                <button type="button" onclick="checkStatus()" class="fa-solid fa-check"></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Display certification status and requester information -->
+    <div id="certification_info" class="status-popup">
+        <div class="popup-content">
+            <span class="status-close" onclick="closePopup()">&times;</span>
+            <h3 id="certification_status"></h3>
+            <p id="requester_info"></p>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function checkStatus() {
+            var trackingNumber = document.getElementById('tracking_number').value;
+
+            // Use AJAX to send the trackingNumber to the server
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    displayCertificationInfo(response);
+                }
+            };
+
+            xhr.open('POST', 'track_retrieve.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('tracking_number=' + trackingNumber);
+        }
+
+        function closePopup() {
+            document.getElementById('certification_info').style.display = 'none';
+        }
+
+        function displayCertificationInfo(response) {
+    var certificationStatusElement = document.getElementById('certification_status');
+    var requesterInfoElement = document.getElementById('requester_info');
+
+    // Update the DOM with the fetched data
+    if (response.certification_status === 'Not Found') {
+        certificationStatusElement.innerHTML = '<span style="color: #b9434b;">Certification Status: ' + response.certification_status + '</span>';
+        requesterInfoElement.innerHTML = '<span style="color: #b9434b;">No Records Found.</span>';
+    } else {
+        certificationStatusElement.innerHTML = '<span style="color: green;">Certification Status: ' + response.certification_status + '</span>';
+        requesterInfoElement.innerHTML = '<span style="color: #b9434b; font-weight: bold;">Requester Information:</span><strong style="color: #454545"><br>Name: </strong>' + response.requester.name +
+            '<strong style="color: #454545"><br>Address: </strong>' + response.requester.address + '<strong style="color: #454545"><br>Contact: </strong>' + response.requester.contact +
+            '<strong style="color: #454545"><br>Certificate Type: </strong>' + response.requester.certificate_type + '<strong style="color: #454545"><br>Pick-up Date: </strong>' + response.requester.pick_up_date + 
+            '<strong style="color: #454545"><br>Payment Method: </strong>' + response.requester.payment_method;
+    }
+
+    // Show the pop-up
+    document.getElementById('certification_info').style.display = 'block';
+}
+
+    </script>
+</body>
+
+</html>

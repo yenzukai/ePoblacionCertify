@@ -1,0 +1,13 @@
+Project for MidTerm
+Instruction: Create a project proposal for the web-based program that you desired to develop.
+
+Outline of the proposal:
+I. Introduction
+II. Design
+   A. Functional Diagram
+   B. Conceptual Design
+III. Letter of Approval to a certain business or organization that you want to work with your web application.
+
+Project for FinalTerm
+Instruction: Create the actual web-based program and present it to your instructor.
+
