@@ -80,5 +80,6 @@ This project is released under the **MIT License** — see the [LICENSE](LICENSE
 Feel free to modify any parts or let me know if you’d like specific logos, screenshots, or additional details included!
 
 Developed by Martin James Pasabillo Rojas
-📧 Contact: emjayprojas@gmail.com
-🌐 GitHub: [[@yenzukai](https://yenzukai.github.io/)](https://github.com/yenzukai)
+
+Contact: emjayprojas@gmail.com
+GitHub: [@yenzukai](https://github.com/yenzukai)
