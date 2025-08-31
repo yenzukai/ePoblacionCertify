@@ -1,4 +1,4 @@
-# 🏘️ ePoblacionCertify
+# ePoblacionCertify
 
 **ePoblacionCertify** is a barangay-based web application that provides seamless and accessible online certification services for community members. It allows residents to request and process important documents such as:
 
@@ -8,11 +8,11 @@
 
 The system is designed to improve accessibility, reduce waiting time, and bring local government services closer to the people through digital transformation.  
 
-🔗 **GitHub Repository:** [ePoblacionCertify](https://github.com/yenzukai/ePoblacionCertify)
+**GitHub Repository:** [ePoblacionCertify](https://github.com/yenzukai/ePoblacionCertify)
 
 ---
 
-## ✨ Features
+## Features
 
 - Online request forms for certificates and permits  
 - Unique reference/tracking code generation for each request  
@@ -22,7 +22,7 @@ The system is designed to improve accessibility, reduce waiting time, and bring 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap (for UI)  
 - **Backend:** PHP (with MySQL database)  
@@ -31,7 +31,7 @@ The system is designed to improve accessibility, reduce waiting time, and bring 
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these steps to run the project locally:
 
@@ -57,7 +57,7 @@ http://localhost/ePoblacionCertify
 
 ---
 
-##  Contributing
+## Contributing
 
 We welcome your contributions! Whether you’d like to improve accessibility, add features, or optimize performance, please:
 
@@ -71,11 +71,14 @@ Ensure your contributions align with existing architecture patterns and update d
 
 ---
 
-##  License
+## License
 
 This project is released under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
-
+## Author
 Feel free to modify any parts or let me know if you’d like specific logos, screenshots, or additional details included!
-::contentReference[oaicite:0]{index=0}
+
+Developed by Martin James Pasabillo Rojas
+📧 Contact: emjayprojas@gmail.com
+🌐 GitHub: [[@yenzukai](https://yenzukai.github.io/)](https://github.com/yenzukai)
